@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">SchoolPay</string>
+    <string name="title_activity_sign_in">SignInActivity</string>
+    <string name="title_activity_sign_up">SignUpActivity</string>
+    <string name="title_activity_add_dependant">AddDependantActivity</string>
+    <string name="title_activity_sign_in_success">SignInSuccessActivity</string>
+    <string name="title_activity_sign_up_success">SignUpSuccessActivity</string>
+    <string name="title_activity_success_sign_up">SuccessSignUpActivity</string>
+    <string name="title_activity_verify_sign_in">VerifySignInActivity</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="title_activity_verify_sign_up">VerifySignUp</string>
+    <string name="title_activity_error_code">ErrorCodeActivity</string>
+    <string name="title_activity_pay_fee_screen1">PayFeeScreen1</string>
+    <string name="title_activity_pay_fee_screen2">PayFeeScreen2</string>
+    <string name="title_activity_pay_fee_school_code">PayFeeSchoolCode</string>
+    <string name="title_activity_pay_fee_enter_student_no">PayFeeEnterStudentNo</string>
+    <string name="title_activity_pay_fee_enter_account_no">PayFeeEnterAccountNo</string>
+    <string name="title_activity_pay_fee_enter_amount">PayFeeEnterAmount</string>
+    <string name="title_activity_notifications">NotificationsActivity</string>
+    <string name="title_activity_pay_fee_otpactivity">PayFeeOTPActivity</string>
+    <string name="title_activity_pay_fee_confirm_screen">PayFeeConfirmScreen</string>
+</resources>
