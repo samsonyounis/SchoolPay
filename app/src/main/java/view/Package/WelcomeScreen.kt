@@ -15,9 +15,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
 @Composable
-fun welcomeScreen() {
+fun welcomeScreen(navController: NavController) {
     // function scope variables
     val obj = LocalContext.current
     //Column Layout
@@ -45,7 +46,10 @@ fun welcomeScreen() {
                 Text(text = "Number 1 platform that aims in making\n school fee payment easy, fast and" +
                         " convient")
                 Spacer(modifier = Modifier.height(64.dp))
-                Button(onClick = {obj.startActivity(Intent(obj,SignInActivity::class.java)) },
+                // navigating to login screen.
+                Button(onClick = {
+                      navController.navigate("loginScreen")
+                },
                     colors = ButtonDefaults.buttonColors(
                         backgroundColor = Color(30,144,255)
                     ),

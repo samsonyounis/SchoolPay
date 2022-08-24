@@ -1,9 +1,6 @@
 package view.Package
 
 import android.content.Intent
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -12,79 +9,64 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.filled.Notifications
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import model.Dependants
-import view.Package.ui.theme.SchoolPayTheme
+import androidx.navigation.NavController
 
-class HomeScreen : ComponentActivity() {
-    private lateinit var numberOfDependants: List<Dependants>
-     lateinit var dependants:List<Int>
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            SchoolPayTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = Color.White
-                ) {
-                    dependants = listOf(1,2,3)
-                    payFeeScreen1()
-                }
-            }
-        }
-    }
-
-    @Composable
-    fun payFeeScreen1() {
-        //Function Local variables
-        val obj = LocalContext.current
-        Scaffold (
-            topBar = {
-                Row(horizontalArrangement = Arrangement.Start,
+@Composable
+fun  homeScreen(navController: NavController){
+    //Function Local variables
+    var dependants = listOf(1,2,3)
+    val obj = LocalContext.current
+    Scaffold (
+        topBar = {
+            Row(horizontalArrangement = Arrangement.Start,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(10.dp)) {
-                    Text(text = "Spay",
+                Text(text = "Spay",
                     color = Color.White,
                     fontSize = 18.sp)
-                    Spacer(modifier = Modifier.width(170.dp))
-                    Button(onClick = { startActivity(Intent(obj,NotificationsActivity::class.java)) },
-                        colors = ButtonDefaults.buttonColors(
-                            backgroundColor = Color(30, 144, 255),
-                            contentColor = Color.White
-                        )) {
-                        Icon(
-                            imageVector = Icons.Filled.Notifications,
-                            contentDescription = "check Notifications"
-                        )
-                    }
-                    Button(onClick = { /*TODO*/ },
+                Spacer(modifier = Modifier.width(170.dp))
+                Button(onClick = {
+                    // navigting to notifications screen
+                    navController.navigate("notificationScreen")},
                     colors = ButtonDefaults.buttonColors(
                         backgroundColor = Color(30, 144, 255),
                         contentColor = Color.White
                     )) {
-                        Icon(
-                            imageVector = Icons.Filled.Settings,
-                            contentDescription = "Settings"
-                        )
-                    }
+                    Icon(
+                        imageVector = Icons.Filled.Notifications,
+                        contentDescription = "check Notifications"
+                    )
                 }
-            },
-            backgroundColor = Color(30, 144, 255),
-            bottomBar = {
-                BottomAppBar(backgroundColor = Color.White,
-                    modifier = Modifier.height(150.dp),
+                Button(onClick = { /*TODO*/ },
+                    colors = ButtonDefaults.buttonColors(
+                        backgroundColor = Color(30, 144, 255),
+                        contentColor = Color.White
+                    )) {
+                    Icon(
+                        imageVector = Icons.Filled.Settings,
+                        contentDescription = "Settings"
+                    )
+                }
+            }
+        },
+        backgroundColor = Color(30, 144, 255),
+        bottomBar = {
+            BottomAppBar(backgroundColor = Color.White,
+                modifier = Modifier.height(150.dp),
                 content = {
                     Row(
                         modifier = Modifier
@@ -149,7 +131,7 @@ class HomeScreen : ComponentActivity() {
                     }
                 })
 
-            },
+        },
         content = {
 
             Card(
@@ -178,7 +160,8 @@ class HomeScreen : ComponentActivity() {
                                 Text(text = "Add more",
                                     color = Color(30, 144, 255),
                                     modifier = Modifier.clickable {
-                                        startActivity(Intent(obj,AddDependantActivity::class.java))
+                                        // navigating to add dependant screen
+                                        navController.navigate("addDependantScreen")
                                     })
                             }
                             Text(text = "Pay For ? Choose dependant to pay for")
@@ -195,9 +178,11 @@ class HomeScreen : ComponentActivity() {
                                         .padding(10.dp)
                                         .height(100.dp)
                                         .clickable {
-                                            startActivity(Intent(obj, PayFeeScreen2::class.java))
+                                            // navigating to selectChannelScreen
+                                            navController.navigate("selectPayChannelScreen")
                                         },
-                                    shape = RoundedCornerShape(20.dp)) {
+                                    shape = RoundedCornerShape(20.dp)
+                                ) {
                                     Row(verticalAlignment =
                                     Alignment.CenterVertically,
                                         modifier = Modifier.padding(start = 8.dp)) {
@@ -212,9 +197,8 @@ class HomeScreen : ComponentActivity() {
                                                 color = Color.Black,
                                                 fontWeight = FontWeight.Bold,
                                                 fontSize = 16.sp)
-                                            Text(text = "dependant School" +
-                                                    " " + "|"+" " +"Dependant class")
-                                            Text(text = "dependant ID")
+                                            Text(text = "dependant School")
+                                            Text(text = "dependant Reg_No")
                                         }
                                     }
                                 }
@@ -226,16 +210,4 @@ class HomeScreen : ComponentActivity() {
 
             }
         })
-
-    }
 }
-/*
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    SchoolPayTheme {
-        payFeeScreen1()
-    }
-}
-
- */

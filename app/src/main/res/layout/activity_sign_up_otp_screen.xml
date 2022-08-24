@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".SignUpOtpScreen">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/OTP_verify"
+        android:text="Verify phone number"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:layout_margin="16dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/OTP_guide"
+        android:text="+070185***38"
+        android:textSize="16dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="32dp"
+        android:layout_below="@+id/OTP_verify"
+        />
+
+    <com.chaos.view.PinView
+        android:id="@+id/pinview"
+        style="@style/PinWidget.PinView"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/OTP_guide"
+        android:layout_centerHorizontal="true"
+        android:layout_height="60dp"
+        android:layout_margin="16dp"
+        android:elevation="10dp"
+        android:hint="OTP Code"
+        android:inputType="number"
+        android:textColor="@color/black"
+        app:itemRadius="10dp"
+        app:itemCount="4"
+        app:itemSpacing="20dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/Resend_code"
+        android:text="Resend code: 00.30 secs"
+        android:textSize="16dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="32dp"
+        android:layout_below="@+id/pinview"
+        />
+
+    <Button
+        android:id="@+id/Verify_button"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Resend_code"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/round_coner_buttons"
+        android:contentDescription="Verify button"
+        android:text="Verify"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

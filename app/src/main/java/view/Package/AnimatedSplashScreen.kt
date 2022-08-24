@@ -52,12 +52,4 @@ fun splash(alpha: Float){
 
         }
     }
-    /*
-    <style name="splash_screen_theme" parent="Theme.SplashScreen">
-    <item name="postSplashScreenTheme">@style/Theme.SmartContract</item>
-    <item name="windowSplashScreenAnimatedIcon">@drawable/mylogo</item>
-
-    </style>
-
-     */
 }

@@ -58,6 +58,8 @@ dependencies {
     // Navigation library
     implementation 'androidx.navigation:navigation-runtime-ktx:2.3.5'
     implementation "androidx.navigation:navigation-compose:2.4.0-beta02"
+    // dependencies fpr OTP screen
+    implementation 'io.github.chaosleung:pinview:1.4.4'
     //splash screen API
     implementation 'androidx.core:core-splashscreen:1.0.0-beta01'
     //LifeCycle libraries
@@ -81,6 +83,9 @@ dependencies {
     // SMS OTP libraries
     implementation 'com.google.android.gms:play-services-auth:17.0.0'
     implementation 'com.google.android.gms:play-services-auth-api-phone:17.4.0'
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     // Acompanist librairies for pager indicators
     def accompanist_version = '0.15.0'
     implementation "com.google.accompanist:accompanist-pager:$accompanist_version"

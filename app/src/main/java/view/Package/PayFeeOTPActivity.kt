@@ -156,7 +156,6 @@ private fun getOtpCodeFromMessage(message:String?){
 
                 OutlinedTextField(value = otpCode,
                     onValueChange = { otpCode = it },
-                    //isError = emailIsError,
                     keyboardOptions = KeyboardOptions(
                         keyboardType = KeyboardType.Number,
                         imeAction = ImeAction.Default
@@ -166,10 +165,6 @@ private fun getOtpCodeFromMessage(message:String?){
                     keyboardActions = KeyboardActions(
                         onDone = { }
                     ),
-                    // trailingIcon = {
-                    // Icon(imageVector = Icons.Filled.Email, contentDescription = "Email Address")
-                    // },
-                    //modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(20.dp)
                 )
                 if (otpCode.length >= 6) {
@@ -181,40 +176,15 @@ private fun getOtpCodeFromMessage(message:String?){
                     buttonBgColor = Color.LightGray
                     buttonContentColor = Color.Black
                 }
-
-                Button(
-                    onClick = { startActivity(Intent(obj,PayFeeConfirmScreen::class.java)) },
+                payNavButton(
+                    onClick = { },
                     enabled = enableButton,
-                    colors = ButtonDefaults.buttonColors(
-                        backgroundColor = buttonBgColor,
-                        contentColor = buttonContentColor
-                    ),
-                    modifier = Modifier.fillMaxWidth(),
-                    shape = RoundedCornerShape(20.dp)
-                ) {
-
-                    Text(
-                        text = "Continue",
-                        modifier = Modifier.padding(start = 100.dp)
-                    )
-                    Spacer(modifier = Modifier.weight(1f))
-                    Icon(
-                        imageVector = Icons.Filled.ArrowForward,
-                        contentDescription = "go forward"
-                    )
-
-                }
+                    text = "Continue",
+                    bgColor = buttonBgColor,
+                    contentColor = buttonContentColor
+                )
             }
         }
 
     }
 }
-/*
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    SchoolPayTheme {
-        Greeting2("Android")
-    }
-}
- */

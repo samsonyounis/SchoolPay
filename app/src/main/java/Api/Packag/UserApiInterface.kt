@@ -8,11 +8,10 @@ import retrofit2.http.POST
 
 interface UserApiInterface {
 
-    @POST("parent/signup")
+    @POST("register")
     fun addUserAccount(@Body user:SignUpRequest):Call<SignUpResponse>
 
-
-    @POST ("loginAuthentication")
+    @POST ("login")
      fun loginRequest(@Body loginRequest: LoginRequest):Call<LoginResponse>
 
      @GET("dependants")
@@ -20,4 +19,8 @@ interface UserApiInterface {
 
     @GET("dependants")
     fun getTransactionHistory():Call<List<TransactionHistory>>
+
+    // function to send back otp code to the server.
+    @POST("codejava/otp")
+    fun sendBackOtp(@Body otp:String):Call<String>
 }

@@ -15,93 +15,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SchoolPay"
         tools:targetApi="31">
-        <receiver android:name=".SmsBroadCastReciever" android:exported="true"
-            android:permission="com.google.android.gms.auth.api.phone.permission.SEND">
+        <activity
+            android:name=".SignUpOtpScreen"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat"/>
 
+        <receiver
+            android:name=".SmsBroadCastReciever"
+            android:exported="true"
+            android:permission="com.google.android.gms.auth.api.phone.permission.SEND">
             <intent-filter>
-                <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED"/>
+                <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED" />
             </intent-filter>
         </receiver>
-        <activity
-            android:name=".PayFeeConfirmScreen"
-            android:exported="false"
-            android:label="@string/title_activity_pay_fee_confirm_screen"
-            android:theme="@style/Theme.SchoolPay" />
+
         <activity
             android:name=".PayFeeOTPActivity"
             android:exported="false"
             android:label="@string/title_activity_pay_fee_otpactivity"
             android:theme="@style/Theme.SchoolPay" />
-        <activity
-            android:name=".NotificationsActivity"
-            android:exported="false"
-            android:label="@string/title_activity_notifications"
-            android:theme="@style/Theme.SchoolPay" />
-        <activity
-            android:name=".PayFeeEnterAmount"
-            android:exported="false"
-            android:label="@string/title_activity_pay_fee_enter_amount"
-            android:theme="@style/Theme.SchoolPay" />
-        <activity
-            android:name=".PayFeeEnterAccountNo"
-            android:exported="false"
-            android:label="@string/title_activity_pay_fee_enter_account_no"
-            android:theme="@style/Theme.SchoolPay" />
-        <activity
-            android:name=".PayFeeEnterStudentNo"
-            android:exported="false"
-            android:label="@string/title_activity_pay_fee_enter_student_no"
-            android:theme="@style/Theme.SchoolPay" />
-        <activity
-            android:name=".PayFeeSchoolCode"
-            android:exported="false"
-            android:label="@string/title_activity_pay_fee_school_code"
-            android:theme="@style/Theme.SchoolPay" />
-        <activity
-            android:name=".PayFeeScreen2"
-            android:exported="false"
-            android:label="@string/title_activity_pay_fee_screen2"
-            android:theme="@style/Theme.SchoolPay" />
-        <activity
-            android:name=".HomeScreen"
-            android:exported="false"
-            android:label="@string/title_activity_pay_fee_screen1"
-            android:theme="@style/Theme.SchoolPay" />
-        <activity
-            android:name=".ErrorCodeActivity"
-            android:exported="false"
-            android:label="@string/title_activity_error_code"
-            android:theme="@style/Theme.SchoolPay" />
-        <activity
-            android:name=".VerifySignUp"
-            android:exported="false"
-            android:label="@string/title_activity_verify_sign_up"
-            android:theme="@style/Theme.SchoolPay" />
-        <activity
-            android:name=".MainActivity2"
-            android:exported="false"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.SchoolPay" />
+
         <activity
             android:name=".SuccessSignUpActivity"
             android:exported="false"
             android:label="@string/title_activity_success_sign_up"
             android:theme="@style/Theme.SchoolPay" />
-        <activity
-            android:name=".AddDependantActivity"
-            android:exported="false"
-            android:label="@string/title_activity_add_dependant"
-            android:theme="@style/Theme.SchoolPay" />
-        <activity
-            android:name=".SignUpActivity"
-            android:exported="false"
-            android:label="@string/title_activity_sign_up"
-            android:theme="@style/Theme.SchoolPay" />
-        <activity
-            android:name=".SignInActivity"
-            android:exported="false"
-            android:label="@string/title_activity_sign_in"
-            android:theme="@style/Theme.SchoolPay" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"

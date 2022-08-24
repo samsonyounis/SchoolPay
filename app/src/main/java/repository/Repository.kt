@@ -17,4 +17,8 @@ class Repository {
     fun loginRequest(loginRequest: LoginRequest):Call<LoginResponse>{
         return retrofitObjectInstance.ApiConnect.loginRequest(loginRequest)
     }
+
+    fun  sendBackOtp(otp:String):Call<String>{
+        return retrofitObjectInstance.ApiConnect.sendBackOtp(otp)
+    }
 }

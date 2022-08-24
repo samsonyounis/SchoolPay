@@ -60,7 +60,7 @@ fun signUpSuccessLayout() {
             Text(text = "Back to")
             Text(text = "Sign in",
                 Modifier.clickable {
-                    obj.startActivity(Intent(obj,SignInActivity::class.java))
+                    //navigating to sign in activity.
                 },
                 color = Color(30,144,255)
             )

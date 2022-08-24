@@ -1,3 +1,3 @@
 package model
 
-data class LoginRequest(val userName:String, val passWord:String)
+data class LoginRequest(val email:String, val password:String)
