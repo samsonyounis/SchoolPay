@@ -1,31 +1,30 @@
-package view.Package
+package view.Package.Activities
 
-import android.app.Activity
-import android.content.Intent
-import android.content.IntentFilter
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.*
+import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.graphics.Color
 import androidx.navigation.*
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.google.android.gms.auth.api.phone.SmsRetriever
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import repository.Repository
+import view.Package.*
+import view.Package.Classes.SmsBroadCastReciever
 import view.Package.ui.theme.SchoolPayTheme
 import viewModel.Packag.LoginScreenViewModel
 import viewModel.Packag.LoginScreenViewModelFactory
 import viewModel.Packag.SignUpScreenViewModel
 import viewModel.Packag.SignUpScreenViewModelFactory
-import java.util.regex.Pattern
 
 class MainActivity : ComponentActivity() {
     private val REQ_USER_CONSENT by lazy { 20}
     // creating instance of Broadcast reciever
-    var smsBroadcastReciever:SmsBroadCastReciever? = null
+    var smsBroadcastReciever: SmsBroadCastReciever? = null
     // creating the varible to hold the Otp Code
    private var otpCode = ""
     // creating Variable of type navController
@@ -47,6 +46,15 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             SchoolPayTheme {
+                // instance of systemUiController
+                val systemUiController = rememberSystemUiController()
+                SideEffect {
+                    // setting the status bar colors.
+                    systemUiController.setStatusBarColor(
+                        color = Color.White,
+                        darkIcons = true
+                    )
+                }
             // A surface container using the 'background' color from the theme
             Surface(color = MaterialTheme.colors.background) {
                 // initializing the navController

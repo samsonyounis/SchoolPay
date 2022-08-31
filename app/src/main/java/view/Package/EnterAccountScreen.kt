@@ -1,7 +1,5 @@
 package view.Package
 
-import android.content.Intent
-import android.provider.AlarmClock
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -15,7 +13,6 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -34,7 +31,7 @@ fun enterAccountScreen(navController: NavController, channel:String,
     var enableButton by remember { mutableStateOf(false) }
     var buttonBgColor by remember { mutableStateOf(Color.LightGray) }
     var buttonContentColor by remember { mutableStateOf(Color.Black) }
-    val obj = LocalContext.current
+
     if (channel == "mpesa"){
         label = "Enter your mpesa number"
         placeholder = "mpesa number"

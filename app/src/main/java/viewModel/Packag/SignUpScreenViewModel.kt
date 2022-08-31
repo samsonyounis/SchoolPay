@@ -3,11 +3,7 @@ package viewModel.Packag
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.launch
 import model.SignUpRequest
-import model.LoginRequest
-import model.LoginResponse
 import model.SignUpResponse
 import repository.Repository
 import retrofit2.Call

@@ -1,16 +1,10 @@
 package view.Package
 
-import android.app.Activity
-import android.content.Intent
-import android.content.IntentFilter
-import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -20,12 +14,10 @@ import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import androidx.core.app.ActivityCompat.startActivityForResult
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.NavController
-import com.google.android.gms.auth.api.phone.SmsRetriever
+import view.Package.Classes.SmsBroadCastReciever
 import view.Package.ReusableFunctions.backArrow
 
 @Composable
@@ -35,7 +27,7 @@ fun otpScreen(navController: NavController, channel:String, schoolCode:String,
     val obj = LocalContext.current
     val REQ_USER_CONSENT by lazy { 20}
     // creating instance of Broadcast reciever
-    var smsBroadcastReciever:SmsBroadCastReciever? = null
+    var smsBroadcastReciever: SmsBroadCastReciever? = null
     // lifeCycle owner
     val lifeCycleOwner: LifecycleOwner = LocalLifecycleOwner.current
     var otp by remember { mutableStateOf("") }

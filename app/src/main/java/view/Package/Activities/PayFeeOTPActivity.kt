@@ -1,43 +1,36 @@
-package view.Package
+package view.Package.Activities
 
 import android.app.Activity
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
-import android.provider.AlarmClock
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowForward
-import androidx.compose.material.icons.filled.House
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.google.android.gms.auth.api.phone.SmsRetriever
+import view.Package.Classes.SmsBroadCastReciever
+import view.Package.payNavButton
 import view.Package.ui.theme.SchoolPayTheme
 import java.util.regex.Pattern
 
 class PayFeeOTPActivity : ComponentActivity() {
     private val REQ_USER_CONSENT by lazy { 20}
     // creating instance of Broadcast reciever
-    var smsBroadcastReciever:SmsBroadCastReciever? = null
+    var smsBroadcastReciever: SmsBroadCastReciever? = null
     // creating the varible to hold the Otp Code
     private  var otpCode = ""
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,7 +62,7 @@ private fun registerBroadCastReciever(){
     //assigning the SmsBroadCastReciever object to the smsBroadcastReciever var
     smsBroadcastReciever = SmsBroadCastReciever()
     smsBroadcastReciever!!.smsBroadcastRecieverListener =
-        object : SmsBroadCastReciever.SmsBroadcastRecieverListener{
+        object : SmsBroadCastReciever.SmsBroadcastRecieverListener {
             override fun onSuccess(intent: Intent?) {
                 startActivityForResult(intent,REQ_USER_CONSENT)
             }
@@ -120,7 +113,6 @@ private fun getOtpCodeFromMessage(message:String?){
     @Composable
     fun otpScreen() {
         //Function Local Variables
-        val obj = LocalContext.current
         var otpCode by remember { mutableStateOf(otpCode) }
         var enableButton by remember { mutableStateOf(false) }
         var buttonBgColor by remember { mutableStateOf(Color.LightGray) }

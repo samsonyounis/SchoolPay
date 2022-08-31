@@ -10,12 +10,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import view.Package.ReusableFunctions.backArrow
 
 @Composable
 fun errorScreen(navController: NavController, error:String) {
+    backArrow(navController = navController)
     Column(horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
-    modifier = Modifier.padding(16.dp).fillMaxSize()) {
+    modifier = Modifier
+        .padding(16.dp)
+        .fillMaxSize()) {
 
         Text(text = error)
     }

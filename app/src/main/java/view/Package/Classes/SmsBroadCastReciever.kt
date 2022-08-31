@@ -1,17 +1,15 @@
-package view.Package
+package view.Package.Classes
 
-import android.content.ActivityNotFoundException
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import androidx.core.app.ActivityCompat.startActivityForResult
 import com.google.android.gms.auth.api.phone.SmsRetriever
 import com.google.android.gms.common.api.CommonStatusCodes
 import com.google.android.gms.common.api.Status
 
 class SmsBroadCastReciever:BroadcastReceiver() {
     //creatinfg instance of smsBroadcastRecieverListener Interface
-    var smsBroadcastRecieverListener:SmsBroadcastRecieverListener? = null
+    var smsBroadcastRecieverListener: SmsBroadcastRecieverListener? = null
     //implementing the member function of the Broadcast class
     override fun onReceive(context: Context?, intent: Intent?) {
 

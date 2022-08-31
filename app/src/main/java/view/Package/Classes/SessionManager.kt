@@ -1,7 +1,8 @@
-package view.Package
+package view.Package.Classes
 
 import android.content.Context
 import android.content.SharedPreferences
+import view.Package.R
 
 /* Session manager to save and fetch data from SharedPreferences */
 class SessionManager (context: Context) {

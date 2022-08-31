@@ -16,33 +16,26 @@
         android:theme="@style/Theme.SchoolPay"
         tools:targetApi="31">
         <activity
-            android:name=".SignUpOtpScreen"
+            android:name=".Activities.SignUpOtpScreen"
             android:exported="false"
             android:theme="@style/Theme.AppCompat"/>
 
         <receiver
-            android:name=".SmsBroadCastReciever"
-            android:exported="true"
-            android:permission="com.google.android.gms.auth.api.phone.permission.SEND">
+            android:name=".Classes.SmsBroadCastReciever"
+            android:exported="true">
             <intent-filter>
-                <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED" />
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
 
         <activity
-            android:name=".PayFeeOTPActivity"
+            android:name=".Activities.PayFeeOTPActivity"
             android:exported="false"
             android:label="@string/title_activity_pay_fee_otpactivity"
             android:theme="@style/Theme.SchoolPay" />
 
         <activity
-            android:name=".SuccessSignUpActivity"
-            android:exported="false"
-            android:label="@string/title_activity_success_sign_up"
-            android:theme="@style/Theme.SchoolPay" />
-
-        <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.SchoolPay">

@@ -1,6 +1,5 @@
 package view.Package
 
-import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -10,17 +9,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 @Composable
 fun welcomeScreen(navController: NavController) {
-    // function scope variables
-    val obj = LocalContext.current
+
     //Column Layout
     Column(modifier= Modifier.fillMaxSize().background(Color(30,144,255)),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -29,7 +24,7 @@ fun welcomeScreen(navController: NavController) {
             painterResource(id = R.drawable.animation) ,
             contentDescription = "Icon Brand",
             modifier = Modifier.size(300.dp))
-                //.background(Color(30, 144, 255)))
+
         Card(backgroundColor = Color.White,
             shape = RoundedCornerShape(20.dp,),
             elevation = 5.dp,

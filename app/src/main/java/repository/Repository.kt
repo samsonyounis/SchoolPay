@@ -6,7 +6,6 @@ import model.LoginRequest
 import model.LoginResponse
 import model.SignUpResponse
 import retrofit2.Call
-import retrofit2.Response
 
 class Repository {
 

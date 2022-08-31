@@ -4,13 +4,8 @@ import android.content.Intent
 import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.KeyboardActions
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -27,6 +22,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.NavController
 import model.SignUpRequest
+import view.Package.Activities.SignUpOtpScreen
 import view.Package.ReusableFunctions.backArrow
 import view.Package.ReusableFunctions.commonButton
 import view.Package.ReusableFunctions.textField
@@ -275,7 +271,7 @@ fun signUpScreen(navController: NavController, viewModel: SignUpScreenViewModel)
                             Toast.makeText(obj.applicationContext, response, Toast.LENGTH_LONG).show()
                             // Move to the next screen and display the error code
                             navController.popBackStack()
-                            navController.navigate("errorScreen/Error Code!!\n\n $response")
+                            navController.navigate("errorScreen/Error !!\n\n $response")
                             openDialog = false
                             showProgress = false
                             errorMessage = ""

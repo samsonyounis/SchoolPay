@@ -25,6 +25,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.NavController
 import model.LoginRequest
+import view.Package.Classes.SessionManager
 import view.Package.ReusableFunctions.backArrow
 import view.Package.ReusableFunctions.circularProgressIndicator
 import view.Package.ReusableFunctions.commonButton
@@ -36,8 +37,6 @@ fun loginScreen(navController: NavController, viewModel: LoginScreenViewModel) {
     //Function local Variables
     val obj = LocalContext.current // instance of session Manager
     val sessionManager = SessionManager(obj) // variable to hold the user token
-    var userToken:String by
-    remember{ mutableStateOf(sessionManager.fetchAuthToken().toString()) }
     // lifeCycle owner
     val lifeCycleOwner: LifecycleOwner = LocalLifecycleOwner.current
     var emailIsError by remember { mutableStateOf(false) }
@@ -130,13 +129,13 @@ fun loginScreen(navController: NavController, viewModel: LoginScreenViewModel) {
         Spacer(modifier = Modifier.height(100.dp))
         Button(onClick = {
             // navigating to hom screen.
-            navController.navigate("signUpSccessScreen")},
+            navController.navigate("homeScreen")},
             colors = ButtonDefaults.buttonColors(
                 backgroundColor = Color(30, 144, 255,),
                 contentColor = Color.White
             ),
             modifier = Modifier.fillMaxWidth()) {
-            Text(text = "success signup")
+            Text(text = "Test homeScreen")
         }
 
         commonButton(text = "Sign in", navController = navController, onClick = {
@@ -180,7 +179,7 @@ fun loginScreen(navController: NavController, viewModel: LoginScreenViewModel) {
                     }
                     else {
                         navController.popBackStack()
-                        navController.navigate("errorScreen/$response")
+                        navController.navigate("errorScreen/Error!!\n\n$response")
                     }
 
                 }

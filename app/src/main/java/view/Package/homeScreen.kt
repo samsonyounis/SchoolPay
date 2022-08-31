@@ -1,6 +1,5 @@
 package view.Package
 
-import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -13,11 +12,9 @@ import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -28,7 +25,6 @@ import androidx.navigation.NavController
 fun  homeScreen(navController: NavController){
     //Function Local variables
     var dependants = listOf(1,2,3)
-    val obj = LocalContext.current
     Scaffold (
         topBar = {
             Row(horizontalArrangement = Arrangement.Start,
@@ -68,6 +64,12 @@ fun  homeScreen(navController: NavController){
             BottomAppBar(backgroundColor = Color.White,
                 modifier = Modifier.height(150.dp),
                 content = {
+                    Column(modifier = Modifier.fillMaxSize(),
+                    verticalArrangement = Arrangement.SpaceBetween) {
+                    Divider(
+                        color = Color.Black, thickness = 2.dp,
+                        modifier = Modifier.fillMaxWidth()
+                    )
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -88,8 +90,10 @@ fun  homeScreen(navController: NavController){
                                 modifier = Modifier.padding(8.dp),
                                 horizontalAlignment = Alignment.Start
                             ) {
-                                Image(painter = painterResource(id = R.drawable.school),
-                                    contentDescription = "Registered schools")
+                                Image(
+                                    painter = painterResource(id = R.drawable.school),
+                                    contentDescription = "Registered schools"
+                                )
                                 Spacer(modifier = Modifier.height(20.dp))
                                 Text(text = "Schools")
                             }
@@ -105,8 +109,10 @@ fun  homeScreen(navController: NavController){
                                 modifier = Modifier.padding(8.dp),
                                 horizontalAlignment = Alignment.Start
                             ) {
-                                Image(painter = painterResource(id = R.drawable.channels),
-                                    contentDescription = "channels")
+                                Image(
+                                    painter = painterResource(id = R.drawable.channels),
+                                    contentDescription = "channels"
+                                )
                                 Spacer(modifier = Modifier.height(20.dp))
                                 Text(text = "Channels")
                             }
@@ -122,28 +128,33 @@ fun  homeScreen(navController: NavController){
                                 modifier = Modifier.padding(8.dp),
                                 horizontalAlignment = Alignment.Start
                             ) {
-                                Image(painter = painterResource(id = R.drawable.faq),
-                                    contentDescription = "FAGs")
+                                Image(
+                                    painter = painterResource(id = R.drawable.faq),
+                                    contentDescription = "FAGs"
+                                )
                                 Spacer(modifier = Modifier.height(20.dp))
                                 Text(text = "Ask Abouts")
                             }
                         }
                     }
+                }
                 })
 
         },
         content = {
-
             Card(
                 elevation = 5.dp,
                 backgroundColor = Color.White,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .fillMaxHeight()) {
+                    .fillMaxHeight()
+            ) {
                 Scaffold(
                     topBar = {
-                        Column(verticalArrangement = Arrangement.SpaceEvenly,
-                            horizontalAlignment = Alignment.CenterHorizontally){
+                        Column(
+                            verticalArrangement = Arrangement.SpaceEvenly,
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
                             Row(
                                 modifier = Modifier
                                     .fillMaxWidth()
@@ -170,8 +181,9 @@ fun  homeScreen(navController: NavController){
                 ) {
                     LazyColumn(content = {
                         for (i in dependants) {
-                            item{
-                                Card(elevation = 5.dp,
+                            item {
+                                Card(
+                                    elevation = 5.dp,
                                     backgroundColor = Color.LightGray,
                                     modifier = Modifier
                                         .fillMaxWidth()
@@ -183,26 +195,33 @@ fun  homeScreen(navController: NavController){
                                         },
                                     shape = RoundedCornerShape(20.dp)
                                 ) {
-                                    Row(verticalAlignment =
-                                    Alignment.CenterVertically,
-                                        modifier = Modifier.padding(start = 8.dp)) {
-                                        Icon(imageVector = Icons.Filled.Person,
+                                    Row(
+                                        verticalAlignment =
+                                        Alignment.CenterVertically,
+                                        modifier = Modifier.padding(start = 8.dp)
+                                    ) {
+                                        Icon(
+                                            imageVector = Icons.Filled.Person,
                                             contentDescription = "dependant",
-                                            modifier = Modifier.size(50.dp))
+                                            modifier = Modifier.size(50.dp)
+                                        )
                                         Spacer(modifier = Modifier.width(8.dp))
-                                        Column(modifier = Modifier.fillMaxHeight(),
-                                            verticalArrangement = Arrangement.SpaceEvenly)
+                                        Column(
+                                            modifier = Modifier.fillMaxHeight(),
+                                            verticalArrangement = Arrangement.SpaceEvenly
+                                        )
                                         {
-                                            Text(text = "Dependant Name",
+                                            Text(
+                                                text = "Dependant Name",
                                                 color = Color.Black,
                                                 fontWeight = FontWeight.Bold,
-                                                fontSize = 16.sp)
+                                                fontSize = 16.sp
+                                            )
                                             Text(text = "dependant School")
                                             Text(text = "dependant Reg_No")
                                         }
                                     }
                                 }
-                                //Spacer(modifier = Modifier.height(10.dp))
                             }
                         }
                     })

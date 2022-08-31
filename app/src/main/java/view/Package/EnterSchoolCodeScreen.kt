@@ -1,33 +1,23 @@
 package view.Package
 
-import android.content.Intent
-import android.provider.AlarmClock
-import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import view.Package.ReusableFunctions.backArrow
 
 @Composable
 fun schoolCodeScreen(navController: NavController, channel:String) {
     //Function Local Variables
-    val obj = LocalContext.current
     var schoolCode by remember { mutableStateOf("") }
     var enableButton by remember { mutableStateOf(false) }
     var buttonBgColor by remember { mutableStateOf(Color.LightGray) }
@@ -80,7 +70,7 @@ fun schoolCodeScreen(navController: NavController, channel:String) {
             }
 
             payNavButton(
-                onClick = { Log.d("Selected Channel",channel)
+                onClick = {
                     navController.navigate("studentNoScreen/$channel/$schoolCode")},
                 enabled = enableButton,
                 text = "Continue",

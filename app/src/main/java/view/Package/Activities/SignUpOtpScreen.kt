@@ -1,4 +1,4 @@
-package view.Package
+package view.Package.Activities
 
 import android.app.Activity
 import android.content.Intent
@@ -13,6 +13,8 @@ import androidx.navigation.NavHostController
 import com.chaos.view.PinView
 import com.google.android.gms.auth.api.phone.SmsRetriever
 import repository.Repository
+import view.Package.R
+import view.Package.Classes.SmsBroadCastReciever
 import viewModel.Packag.OtpScreenViewModel
 import viewModel.Packag.OtpScreenViewModelFactory
 import java.util.regex.Pattern
@@ -28,7 +30,7 @@ class SignUpOtpScreen : AppCompatActivity() {
     private lateinit var navController: NavHostController
     private val REQ_USER_CONSENT by lazy { 20}
     // creating instance of Broadcast reciever
-    var smsBroadcastReciever:SmsBroadCastReciever? = null
+    var smsBroadcastReciever: SmsBroadCastReciever? = null
     // creating the varible to hold the Otp Code
     private  var otpCode = ""
     private lateinit var pinView: PinView;
@@ -68,7 +70,7 @@ class SignUpOtpScreen : AppCompatActivity() {
         //assigning the SmsBroadCastReciever object to the smsBroadcastReciever var
         smsBroadcastReciever = SmsBroadCastReciever()
         smsBroadcastReciever!!.smsBroadcastRecieverListener =
-            object : SmsBroadCastReciever.SmsBroadcastRecieverListener{
+            object : SmsBroadCastReciever.SmsBroadcastRecieverListener {
                 override fun onSuccess(intent: Intent?) {
                     startActivityForResult(intent,REQ_USER_CONSENT)
                 }
